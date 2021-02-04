@@ -1,0 +1,122 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+:root {
+  --t-red: ;
+  --t-blue: ;
+  --t-green: ;
+  --t-alpha: ;
+  --red: ;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  font-family: Poppins, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+aside {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  background-color: lightgray;
+}
+
+main {
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
+  background-color: lightgray;
+}
+
+main #screen {
+  position: relative;
+  background-color: brown;
+  height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main #screen h1 {
+  font-size: 2rem;
+  z-index: 1;
+}
+
+main #screen .target {
+  position: absolute;
+  background-color: burlywood;
+  height: 35%;
+  width: 8em;
+  background: rgba(210, 189, 189, 0.04);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(14, 15, 18, 0.2);
+          box-shadow: 0 8px 32px 0 rgba(14, 15, 18, 0.2);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: translate(-50%, -50%) rotate3d(5, 1, 1, -32deg);
+          transform: translate(-50%, -50%) rotate3d(5, 1, 1, -32deg);
+}
+
+main #screen .target:nth-child(2) {
+  top: 55%;
+  left: 75%;
+  z-index: 0;
+}
+
+main #screen .target:nth-child(3) {
+  top: 50%;
+  left: 70%;
+  z-index: 2;
+}
+
+main #screen .target:nth-child(4) {
+  top: 45%;
+  left: 65%;
+  z-index: 3;
+}
+
+.controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.controls label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+/*# sourceMappingURL=style.css.map */
