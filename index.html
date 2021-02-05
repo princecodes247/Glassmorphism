@@ -4,12 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="prism.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <aside>
       <div>
-        <code>fff</code>
+        <pre>
+          <code class="prism language-js">
+            background: ${colorValue};
+            box-shadow: ${shadowString};
+            backdrop-filter: ${blurString};
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+                </code>
+        </pre>
       </div>
     </aside>
     <main>
@@ -71,13 +80,14 @@
 
           <label for="">
             Show outline
-            <input type="checkbox" name="" id="" />
+            <input type="checkbox" name="" id="" checked />
           </label>
         </div>
       </section>
 
       <footer></footer>
     </main>
+    <script src="prism.js"></script>
     <script src="main.js"></script>
   </body>
 </html>

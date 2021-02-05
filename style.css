@@ -4,7 +4,7 @@
   padding: 0;
   margin: 0;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 :root {
@@ -27,15 +27,18 @@ body {
 
 aside {
   -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
+  -ms-flex: 2;
+  flex: 2;
   background-color: lightgray;
+}
+
+aside pre {
 }
 
 main {
   -webkit-box-flex: 5;
-      -ms-flex: 5;
-          flex: 5;
+  -ms-flex: 5;
+  flex: 5;
   background-color: lightgray;
 }
 
@@ -47,12 +50,13 @@ main #screen {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 main #screen h1 {
@@ -67,22 +71,22 @@ main #screen .target {
   width: 8em;
   background: rgba(210, 189, 189, 0.04);
   -webkit-box-shadow: 0 8px 32px 0 rgba(14, 15, 18, 0.2);
-          box-shadow: 0 8px 32px 0 rgba(14, 15, 18, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(14, 15, 18, 0.2);
   -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.06);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-transform: translate(-50%, -50%) rotate3d(5, 1, 1, -32deg);
-          transform: translate(-50%, -50%) rotate3d(5, 1, 1, -32deg);
+  transform: translate(-50%, -50%) rotate3d(5, 1, 1, -32deg);
 }
 
 main #screen .target:nth-child(2) {
@@ -96,7 +100,7 @@ main #screen .target:nth-child(3) {
   left: 10%;
   z-index: 2;
   -webkit-transform: translate(-50%, -50%) rotate3d(5, 1, 1, 0deg);
-          transform: translate(-50%, -50%) rotate3d(5, 1, 1, 0deg);
+  transform: translate(-50%, -50%) rotate3d(5, 1, 1, 0deg);
   height: 10%;
   width: 11em;
 }
@@ -112,7 +116,7 @@ main #screen .target:nth-child(5) {
   right: -9.2%;
   z-index: 2;
   -webkit-transform: translate(-50%, -50%) rotate3d(5, 1, 1, 0deg);
-          transform: translate(-50%, -50%) rotate3d(5, 1, 1, 0deg);
+  transform: translate(-50%, -50%) rotate3d(5, 1, 1, 0deg);
   height: 10%;
   width: 8em;
   border-radius: 10px 0 0 10px;
@@ -124,8 +128,8 @@ main #screen .target:nth-child(5) {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   padding: 10px;
 }
 
@@ -135,8 +139,8 @@ main #screen .target:nth-child(5) {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   margin-bottom: 10px;
 }
 
@@ -145,7 +149,7 @@ main #screen .target:nth-child(5) {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 /*# sourceMappingURL=style.css.map */

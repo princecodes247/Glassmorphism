@@ -1,5 +1,5 @@
 //DOM Elements
-const codeBox = document.querySelector('code');
+const codeBox = document.querySelector('aside pre code');
 const blurControl = document.querySelector('#blur-control');
 const opacityControl = document.querySelector('#opacity-control');
 const colorControl = document.querySelector('#color-control');
@@ -11,7 +11,9 @@ let colorValue = 'rgba(210, 189, 189, 0.04)'
 let rgbColor = 'rgba(210, 189, 189'
 let alphaValue = 0.04
 let shadowValue = 0.20
-let blurValue = 'blur(5px)'
+let shadowString = `0 8px 32px 0 rgba(14, 15, 18, 0.20)`;
+let blurValue = 5;
+let blurString = `blur(${blurValue}px)`;
 
 //To set the sliders default values
 blurControl.value = 5
@@ -20,6 +22,7 @@ opacityControl.value = alphaValue
 
 shadowControl.parentElement.querySelector('.name .indicator').innerText = shadowValue;
 opacityControl.parentElement.querySelector('.name .indicator').innerText = alphaValue;
+blurControl.parentElement.querySelector('.name .indicator').innerText = blurValue;
 
 //Functions
 //..............................
@@ -41,20 +44,21 @@ function hexToRGB(h) {
 }
 // Code Output
 function codeOutput() {
-    codeBox.innerText = `
+    codeBox.innerHTML = Prism.highlight(`
     background: ${colorValue};
-    box-shadow: ${shadowValue};
-    backdrop-filter: ${blurValue};
+    box-shadow: ${shadowString};
+    backdrop-filter: ${blurString};
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.06);
-    `
+    `, Prism.languages.javascript, 'javascript');
 }
 
 
 //Event Listeners
 blurControl.addEventListener('input', () => {
-    blurValue = `blur(${event.target.value}px)`
-    target.forEach(item => item.style.backdropFilter = `${blurValue}`)
+    blurValue = event.target.value
+    blurString = `blur(${blurValue}px)`
+    target.forEach(item => item.style.backdropFilter = `${blurString}`)
     let indicator = blurControl.parentElement.querySelector('.name .indicator');
     indicator.innerText = event.target.value;
     codeOutput()
@@ -64,7 +68,7 @@ opacityControl.addEventListener('input', () => {
     colorValue = `${rgbColor},${alphaValue})`
     target.forEach(item => item.style.background = colorValue)
     let indicator = opacityControl.parentElement.querySelector('.name .indicator');
-    indicator.innerText = event.target.value;
+    indicator.innerText = alphaValue;
     codeOutput()
 })
 colorControl.addEventListener('input', () => {
@@ -76,10 +80,11 @@ colorControl.addEventListener('input', () => {
     codeOutput()
 })
 shadowControl.addEventListener('input', () => {
-    shadowValue = `0 8px 32px 0 rgba(14, 15, 18, ${event.target.value})`
-    target.forEach(item => item.style.boxShadow = shadowValue)
+    shadowValue = event.target.value
+    shadowString = `0 8px 32px 0 rgba(14, 15, 18, ${event.target.value})`
+    target.forEach(item => item.style.boxShadow = shadowString)
     let indicator = shadowControl.parentElement.querySelector('.name .indicator');
-    indicator.innerText = event.target.value;
+    indicator.innerText = shadowValue;
     codeOutput()
 })
 
