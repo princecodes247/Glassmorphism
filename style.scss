@@ -40,7 +40,7 @@ header {
   h2 {
     color: var(--prim-color);
     span {
-      filter: blur(1px);
+      // filter: blur(1px);
       color: var(--text);
     }
   }
@@ -127,7 +127,7 @@ main {
       background-color: burlywood;
       height: 35%;
       width: 8em;
-      background: rgba(210, 189, 189, $alpha: 0.04);
+      background: rgba(189, 189, 189, $alpha: 0.04);
       box-shadow: 0 8px 32px 0 rgba(14, 15, 18, 0.2);
       backdrop-filter: blur(5px);
       border-radius: 10px;
@@ -208,4 +208,20 @@ main {
   border-radius: 5px;
   color: var(--screen-text);
   font-family: Poppins, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.social-sect {
+  margin-top: 20px;
+  .social-link {
+    margin-right: 2px;
+    margin-bottom: 10px;
+    display: flex;
+    svg {
+      margin-right: 5px;
+    }
+    &:active svg,
+    &:active p {
+      color: var(--screen-bg);
+    }
+  }
 }

@@ -9,9 +9,12 @@ const target = document.querySelectorAll(".target");
 const shadowControl = document.querySelector("#shadow-control");
 
 //Control Variables
-let colorValue = "rgba(210, 189, 189,0.04)";
-let rgbColor = "rgba(210, 189, 189";
-let alphaValue = 0.04;
+let redValue = 189
+let greenValue = 189
+let blueValue = 189
+let alphaValue = 0.14;
+let colorValue = `rgba(${redValue}, ${greenValue}, ${blueValue},${alphaValue})`;
+let rgbColor = "rgba(189, 189, 189";
 let shadowValue = 0.2;
 let shadowString = `0 8px 32px 0 rgba(14, 15, 18, 0.20)`;
 let blurValue = 5;
@@ -62,6 +65,10 @@ blurControl.value = 5;
 shadowControl.value = shadowValue;
 opacityControl.value = alphaValue;
 
+colorControl.parentElement.querySelector(
+    ".indicator"
+).innerText = `#${redValue.toString(16)}${greenValue.toString(16)}${blueValue.toString(16)}`;
+
 shadowControl.parentElement.querySelector(
     ".name .indicator"
 ).innerText = shadowValue;
@@ -76,21 +83,17 @@ blurControl.parentElement.querySelector(
 //..............................
 //Color format transformation function
 function hexToRGB(h) {
-    let r,
-        g,
-        b = 0;
 
     if (h.length == 4) {
-        r = parseInt(h[1] + h[1], 16);
-        g = parseInt(h[2] + h[2], 16);
-        b = parseInt(h[3] + h[3], 16);
+        redValue = parseInt(h[1] + h[1], 16);
+        greenValue = parseInt(h[2] + h[2], 16);
+        blueValue = parseInt(h[3] + h[3], 16);
     } else if (h.length == 7) {
-        r = parseInt(h[1] + h[2], 16);
-        g = parseInt(h[3] + h[4], 16);
-        b = parseInt(h[5] + h[6], 16);
+        redValue = parseInt(h[1] + h[2], 16);
+        greenValue = parseInt(h[3] + h[4], 16);
+        blueValue = parseInt(h[5] + h[6], 16);
     }
-
-    return `rgba( ${r}, ${g}, ${b}`;
+    colorValue = `rgba(${redValue}, ${greenValue}, ${blueValue},${alphaValue})`;
 }
 // Code Output
 function codeOutput() {
@@ -106,7 +109,7 @@ function codeOutput() {
         "javascript"
     );
 }
-
+codeOutput()
 //Copy to clipboard
 
 copyBtn.addEventListener("click", () => {
@@ -134,7 +137,7 @@ blurControl.addEventListener("input", () => {
 });
 opacityControl.addEventListener("input", () => {
     alphaValue = event.target.value;
-    colorValue = `${rgbColor},${alphaValue})`;
+    colorValue = `rgba(${redValue}, ${greenValue}, ${blueValue},${alphaValue})`;
     target.forEach((item) => (item.style.background = colorValue));
     let indicator = opacityControl.parentElement.querySelector(
         ".name .indicator"
@@ -143,20 +146,21 @@ opacityControl.addEventListener("input", () => {
     codeOutput();
 });
 colorControl.addEventListener("input", () => {
-    rgbColor = hexToRGB(event.target.value);
-    colorValue = `${rgbColor}, ${alphaValue})`;
+    hexToRGB(event.target.value);
     target.forEach((item) => (item.style.background = colorValue));
-    let indicator = colorControl.parentElement.querySelector(".name .indicator");
+    let indicator = colorControl.parentElement.querySelector(".indicator");
     indicator.innerText = event.target.value;
     codeOutput();
 });
+
 shadowControl.addEventListener("input", () => {
     shadowValue = event.target.value;
-    shadowString = `0 8px 32px 0 rgba(14, 15, 18, ${event.target.value})`;
+    shadowString = `0 8px 32px 0 rgba(14, 15, 18, ${shadowValue})`;
     target.forEach((item) => (item.style.boxShadow = shadowString));
     let indicator = shadowControl.parentElement.querySelector(".name .indicator");
     indicator.innerText = shadowValue;
     codeOutput();
 });
 
-codeOutput();
+
+

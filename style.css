@@ -47,8 +47,6 @@ header h2 {
 }
 
 header h2 span {
-  -webkit-filter: blur(1px);
-          filter: blur(1px);
   color: var(--text);
 }
 
@@ -185,7 +183,7 @@ main #screen .target {
   background-color: burlywood;
   height: 35%;
   width: 8em;
-  background: rgba(210, 189, 189, 0.04);
+  background: rgba(189, 189, 189, 0.04);
   -webkit-box-shadow: 0 8px 32px 0 rgba(14, 15, 18, 0.2);
           box-shadow: 0 8px 32px 0 rgba(14, 15, 18, 0.2);
   -webkit-backdrop-filter: blur(5px);
@@ -303,5 +301,26 @@ main #screen .target:nth-child(5) {
   border-radius: 5px;
   color: var(--screen-text);
   font-family: Poppins, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.social-sect {
+  margin-top: 20px;
+}
+
+.social-sect .social-link {
+  margin-right: 2px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.social-sect .social-link svg {
+  margin-right: 5px;
+}
+
+.social-sect .social-link:active svg,
+.social-sect .social-link:active p {
+  color: var(--screen-bg);
 }
 /*# sourceMappingURL=style.css.map */
