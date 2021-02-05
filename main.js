@@ -5,18 +5,16 @@ const opacityControl = document.querySelector('#opacity-control');
 const colorControl = document.querySelector('#color-control');
 const target = document.querySelectorAll('.target');
 const shadowControl = document.querySelector('#shadow-control');
-const posYControl = document.querySelector('#pos-y-control');
-const posXControl = document.querySelector('#pos-x-control');
 
 //Control Variables
 let colorValue = 'rgba(210, 189, 189, 0.04)'
 let rgbColor = 'rgba(210, 189, 189'
-let alphaValue = 0.14
+let alphaValue = 0.04
 let shadowValue = 0.20
 let blurValue = 'blur(5px)'
 
 //To set the sliders default values
-blurControl.value = blurValue
+blurControl.value = 5
 shadowControl.value = shadowValue
 opacityControl.value = alphaValue
 
@@ -71,12 +69,6 @@ colorControl.addEventListener('input', () => {
 shadowControl.addEventListener('input', () => {
     shadowValue = `0 8px 32px 0 rgba(14, 15, 18, ${event.target.value})`
     target.forEach(item => item.style.boxShadow = shadowValue)
-    codeOutput()
-})
-posXControl.addEventListener('input', () => {
-
-})
-posYControl.addEventListener('input', () => {
     codeOutput()
 })
 

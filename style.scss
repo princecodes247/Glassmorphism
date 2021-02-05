@@ -68,7 +68,7 @@ main {
         z-index: 2;
         transform: translate(-50%, -50%) rotate3d(5, 1, 1, 0deg);
         height: 10%;
-        width: 15em;
+        width: 11em;
       }
       &:nth-child(4) {
         top: 45%;
@@ -76,12 +76,13 @@ main {
         z-index: 3;
       }
       &:nth-child(5) {
-        bottom: 13%;
-        right: 0%;
+        bottom: 5%;
+        right: -9.2%;
         z-index: 2;
         transform: translate(-50%, -50%) rotate3d(5, 1, 1, 0deg);
         height: 10%;
-        width: 15em;
+        width: 8em;
+        border-radius: 10px 0 0 10px;
       }
     }
   }
