@@ -12,14 +12,20 @@
   --t-green: ;
   --t-alpha: ;
   --red: ;
-  --prim-color: #5c944c;
-  --bg: #86bbd8;
+  --text: #f4f4f4;
+  --header: #0a0a2b;
+  //#624cab;
+  //#588157;
+  --prim-color: var(--screen-bg);
+  --bg: #04052e;
+  --screen-bg: brown;
+  --screen-text: #fff;
 }
 
 body {
+  color: var(--text);
   font-family: Poppins, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: rgb(211, 211, 211);
-  padding: 0 10%;
   background-color: var(--bg);
 }
 header {
@@ -27,11 +33,15 @@ header {
   display: flex;
   align-items: center;
   padding: 12px;
-  background-color: var(--prim-color);
+  background-color: var(--header);
+  width: 100vw;
+  padding: 0 10%;
 
   h2 {
+    color: var(--prim-color);
     span {
       filter: blur(1px);
+      color: var(--text);
     }
   }
 }
@@ -39,6 +49,7 @@ article {
   display: flex;
   height: 100vh;
   padding: 10px;
+  padding: 10px 10%;
   @media screen and (max-width: 1024px) {
     // flex-direction: column;
     min-height: 100vh;
@@ -55,7 +66,6 @@ article {
 
 aside {
   flex: 2;
-  background-color: rgb(211, 211, 211);
   padding-left: 10px;
   @media screen and (max-width: 770px) {
     padding-bottom: 40px;
@@ -81,7 +91,6 @@ aside {
 }
 main {
   flex: 5;
-  background-color: rgb(211, 211, 211);
   display: flex;
   flex-direction: column;
   @media screen and (max-width: 1024px) {
@@ -93,7 +102,7 @@ main {
   }
   #screen {
     position: relative;
-    background-color: brown;
+    background-color: var(--screen-bg);
     height: 50%;
     min-height: 220px;
     display: flex;
@@ -107,6 +116,8 @@ main {
     h1 {
       font-size: 2rem;
       z-index: 1;
+      color: var(--screen-text);
+
       @media screen and (min-width: 2560px) {
         font-size: 4rem;
       }
@@ -194,4 +205,7 @@ main {
   width: 100px;
   background-color: var(--prim-color);
   border: none;
+  border-radius: 5px;
+  color: var(--screen-text);
+  font-family: Poppins, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
