@@ -8,19 +8,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <aside>
-      <div>
-        <pre>
-          <code class="prism language-js">
-            background: ${colorValue};
-            box-shadow: ${shadowString};
-            backdrop-filter: ${blurString};
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-                </code>
-        </pre>
-      </div>
-    </aside>
     <main>
       <section id="screen">
         <h1>Glassmorphism</h1>
@@ -87,6 +74,16 @@
 
       <footer></footer>
     </main>
+    <aside>
+      <pre>
+        <code class="prism language-js">
+          background: ${colorValue}; box-shadow: ${shadowString};
+          backdrop-filter: ${blurString}; border-radius: 10px; border: 1px solid
+          rgba(255, 255, 255, 0.06);
+        </code>
+      </pre>
+      <button class="btn" id="copy-btn">Click</button>
+    </aside>
     <script src="prism.js"></script>
     <script src="main.js"></script>
   </body>

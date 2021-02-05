@@ -1,5 +1,6 @@
 //DOM Elements
-const codeBox = document.querySelector('aside pre code');
+const codeBox = document.querySelector('aside code');
+const copyBtn = document.querySelector('aside #copy-btn');
 const blurControl = document.querySelector('#blur-control');
 const opacityControl = document.querySelector('#opacity-control');
 const colorControl = document.querySelector('#color-control');
@@ -53,6 +54,21 @@ function codeOutput() {
     `, Prism.languages.javascript, 'javascript');
 }
 
+//Copy to clipboard 
+
+copyBtn.addEventListener('click', () => {
+    let dummy = document.createElement('textarea');
+    dummy.innerText = codeBox.textContent;
+    document.body.appendChild(dummy)
+    dummy.select()
+    dummy.setSelectionRange(0, 99999)
+    document.execCommand("copy")
+    document.body.removeChild(dummy)
+    copyBtn.innerText = "Copied!!"
+    setTimeout(() => {
+        copyBtn.innerText = "Copy"
+    }, 4000)
+})
 
 //Event Listeners
 blurControl.addEventListener('input', () => {
