@@ -18,6 +18,8 @@ body {
   display: flex;
   height: 100vh;
   font-family: Poppins, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(211, 211, 211);
+  padding: 10px;
 }
 
 aside {
@@ -35,6 +37,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
     h1 {
       font-size: 2rem;
       z-index: 1;
@@ -56,18 +59,29 @@ main {
 
       &:nth-child(2) {
         top: 55%;
-        left: 75%;
+        left: 60%;
         z-index: 0;
       }
       &:nth-child(3) {
-        top: 50%;
-        left: 70%;
+        top: 13%;
+        left: 10%;
         z-index: 2;
+        transform: translate(-50%, -50%) rotate3d(5, 1, 1, 0deg);
+        height: 10%;
+        width: 15em;
       }
       &:nth-child(4) {
         top: 45%;
         left: 65%;
         z-index: 3;
+      }
+      &:nth-child(5) {
+        bottom: 13%;
+        right: 0%;
+        z-index: 2;
+        transform: translate(-50%, -50%) rotate3d(5, 1, 1, 0deg);
+        height: 10%;
+        width: 15em;
       }
     }
   }
@@ -76,9 +90,10 @@ main {
 .controls {
   display: flex;
   flex-direction: column;
-
+  padding: 10px;
   label {
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
   }
 }
