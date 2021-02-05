@@ -18,6 +18,9 @@ blurControl.value = 5
 shadowControl.value = shadowValue
 opacityControl.value = alphaValue
 
+shadowControl.parentElement.querySelector('.name .indicator').innerText = shadowValue;
+opacityControl.parentElement.querySelector('.name .indicator').innerText = alphaValue;
+
 //Functions
 //..............................
 //Color format transformation function
@@ -52,27 +55,32 @@ function codeOutput() {
 blurControl.addEventListener('input', () => {
     blurValue = `blur(${event.target.value}px)`
     target.forEach(item => item.style.backdropFilter = `${blurValue}`)
+    let indicator = blurControl.parentElement.querySelector('.name .indicator');
+    indicator.innerText = event.target.value;
     codeOutput()
 })
 opacityControl.addEventListener('input', () => {
     alphaValue = event.target.value;
     colorValue = `${rgbColor},${alphaValue})`
     target.forEach(item => item.style.background = colorValue)
+    let indicator = opacityControl.parentElement.querySelector('.name .indicator');
+    indicator.innerText = event.target.value;
     codeOutput()
 })
 colorControl.addEventListener('input', () => {
     rgbColor = hexToRGB(event.target.value)
     colorValue = `${rgbColor},${alphaValue})`
     target.forEach(item => item.style.background = colorValue)
+    let indicator = colorControl.parentElement.querySelector('.name .indicator');
+    indicator.innerText = event.target.value;
     codeOutput()
 })
 shadowControl.addEventListener('input', () => {
     shadowValue = `0 8px 32px 0 rgba(14, 15, 18, ${event.target.value})`
     target.forEach(item => item.style.boxShadow = shadowValue)
+    let indicator = shadowControl.parentElement.querySelector('.name .indicator');
+    indicator.innerText = event.target.value;
     codeOutput()
 })
-
-
-
 
 codeOutput()
