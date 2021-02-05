@@ -13,26 +13,50 @@
   --t-green: ;
   --t-alpha: ;
   --red: ;
+  --prim-color: #5c944c;
+  --bg: #86bbd8;
 }
 
 body {
+  font-family: Poppins, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: lightgray;
+  padding: 0 10%;
+  background-color: var(--bg);
+}
+
+header {
+  height: 8vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 12px;
+  background-color: var(--prim-color);
+}
+
+header h2 span {
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
+}
+
+article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   height: 100vh;
-  font-family: Poppins, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: lightgray;
   padding: 10px;
 }
 
 @media screen and (max-width: 1024px) {
-  body {
+  article {
     min-height: 100vh;
   }
 }
 
 @media screen and (max-width: 768px) {
-  body {
+  article {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -42,12 +66,11 @@ body {
 }
 
 @media screen and (max-width: 500px) {
-  body {
+  article {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    min-height: 150vh;
   }
 }
 
@@ -56,13 +79,19 @@ aside {
       -ms-flex: 2;
           flex: 2;
   background-color: lightgray;
-  padding: 0 10px;
+  padding-left: 10px;
+}
+
+@media screen and (max-width: 770px) {
+  aside {
+    padding-bottom: 40px;
+  }
 }
 
 aside pre {
   width: 100%;
   background: #2d2d2d;
-  margin: 1px;
+  border-radius: 10px;
 }
 
 aside pre code {
@@ -123,6 +152,12 @@ main #screen {
   overflow: hidden;
 }
 
+@media screen and (max-width: 750px) {
+  main #screen {
+    min-height: 300px;
+  }
+}
+
 main #screen h1 {
   font-size: 2rem;
   z-index: 1;
@@ -172,18 +207,20 @@ main #screen .target:nth-child(2) {
 }
 
 main #screen .target:nth-child(3) {
-  top: 13%;
+  top: 28%;
   left: 10%;
   z-index: 2;
-  -webkit-transform: translate(-50%, -50%) rotate3d(5, 1, 1, 0deg);
-          transform: translate(-50%, -50%) rotate3d(5, 1, 1, 0deg);
-  height: 15%;
-  width: 11em;
+  -webkit-transform: translate(0%, -50%) rotate3d(5, 1, 1, 0deg);
+          transform: translate(0%, -50%) rotate3d(5, 1, 1, 0deg);
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (min-width: 1440px) {
   main #screen .target:nth-child(3) {
-    width: 5em;
+    height: 100px;
+    width: 100px;
   }
 }
 
@@ -250,5 +287,7 @@ main #screen .target:nth-child(5) {
 .btn {
   padding: 10px;
   width: 100px;
+  background-color: var(--prim-color);
+  border: none;
 }
 /*# sourceMappingURL=style.css.map */

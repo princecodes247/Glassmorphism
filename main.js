@@ -8,7 +8,7 @@ const target = document.querySelectorAll('.target');
 const shadowControl = document.querySelector('#shadow-control');
 
 //Control Variables
-let colorValue = 'rgba(210, 189, 189, 0.04)'
+let colorValue = 'rgba(210, 189, 189,0.04)'
 let rgbColor = 'rgba(210, 189, 189'
 let alphaValue = 0.04
 let shadowValue = 0.20
@@ -89,7 +89,7 @@ opacityControl.addEventListener('input', () => {
 })
 colorControl.addEventListener('input', () => {
     rgbColor = hexToRGB(event.target.value)
-    colorValue = `${rgbColor},${alphaValue})`
+    colorValue = `${rgbColor}, ${alphaValue})`
     target.forEach(item => item.style.background = colorValue)
     let indicator = colorControl.parentElement.querySelector('.name .indicator');
     indicator.innerText = event.target.value;

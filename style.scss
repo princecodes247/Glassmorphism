@@ -12,13 +12,32 @@
   --t-green: ;
   --t-alpha: ;
   --red: ;
+  --prim-color: #5c944c;
+  --bg: #86bbd8;
 }
 
 body {
-  display: flex;
-  height: 100vh;
   font-family: Poppins, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: rgb(211, 211, 211);
+  padding: 0 10%;
+  background-color: var(--bg);
+}
+header {
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background-color: var(--prim-color);
+
+  h2 {
+    span {
+      filter: blur(1px);
+    }
+  }
+}
+article {
+  display: flex;
+  height: 100vh;
   padding: 10px;
   @media screen and (max-width: 1024px) {
     // flex-direction: column;
@@ -30,18 +49,25 @@ body {
   }
   @media screen and (max-width: 500px) {
     flex-direction: column;
-    min-height: 150vh;
+    // min-height: 150vh;
   }
 }
 
 aside {
   flex: 2;
   background-color: rgb(211, 211, 211);
-  padding: 0 10px;
+  padding-left: 10px;
+  @media screen and (max-width: 770px) {
+    padding-bottom: 40px;
+    // flex: 2;
+    // min-height: 100vh;
+  }
   pre {
     width: 100%;
     background: #2d2d2d;
-    margin: 1px;
+    // margin: 1px;
+    border-radius: 10px;
+
     code {
       width: 10%;
       color: #ccc;
@@ -75,6 +101,9 @@ main {
     align-items: center;
     border-radius: 10px;
     overflow: hidden;
+    @media screen and (max-width: 750px) {
+      min-height: 300px;
+    }
     h1 {
       font-size: 2rem;
       z-index: 1;
@@ -106,14 +135,16 @@ main {
         }
       }
       &:nth-child(3) {
-        top: 13%;
+        top: 28%;
         left: 10%;
         z-index: 2;
-        transform: translate(-50%, -50%) rotate3d(5, 1, 1, 0deg);
-        height: 15%;
-        width: 11em;
-        @media screen and (max-width: 500px) {
-          width: 5em;
+        transform: translate(0%, -50%) rotate3d(5, 1, 1, 0deg);
+        border-radius: 50%;
+        height: 60px;
+        width: 60px;
+        @media screen and (min-width: 1440px) {
+          height: 100px;
+          width: 100px;
         }
       }
       &:nth-child(4) {
@@ -161,4 +192,6 @@ main {
 .btn {
   padding: 10px;
   width: 100px;
+  background-color: var(--prim-color);
+  border: none;
 }

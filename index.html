@@ -8,82 +8,87 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main>
-      <section id="screen">
-        <h1>Glassmorphism</h1>
-        <div class="target"></div>
-        <div class="target"></div>
-        <div class="target"></div>
-        <div class="target"></div>
-      </section>
-      <section id="">
-        <div class="controls">
-          <label for="">
-            <span class="name">
-              <p>Color</p>
-              <p></p>
-            </span>
-            <input type="color" name="" id="color-control" />
-          </label>
-          <label for="">
-            <span class="name">
-              <p>Blur</p>
-              <p class="indicator">0</p>
-            </span>
-            <input
-              type="range"
-              name=""
-              id="blur-control"
-              max="20"
-              step="0.05"
-            />
-          </label>
-          <label for="">
-            <span class="name">
-              <p>Transparency</p>
-              <p class="indicator">0</p>
-            </span>
-            <input
-              type="range"
-              name=""
-              id="opacity-control"
-              max="1"
-              step="0.01"
-            />
-          </label>
-          <label for="">
-            <span class="name">
-              <p>Box-Shadow</p>
-              <p class="indicator">0</p>
-            </span>
-            <input
-              type="range"
-              name=""
-              id="shadow-control"
-              max="1"
-              step="0.01"
-            />
-          </label>
+    <header>
+      <h2><span>Glass</span>morphism</h2>
+    </header>
+    <article>
+      <main>
+        <section id="screen">
+          <h1>Glassmorphism</h1>
+          <div class="target"></div>
+          <div class="target"></div>
+          <div class="target"></div>
+          <div class="target"></div>
+        </section>
+        <section id="">
+          <div class="controls">
+            <label for="">
+              <span class="name">
+                <p>Color</p>
+                <p></p>
+              </span>
+              <input type="color" name="" id="color-control" />
+            </label>
+            <label for="">
+              <span class="name">
+                <p>Blur</p>
+                <p class="indicator">0</p>
+              </span>
+              <input
+                type="range"
+                name=""
+                id="blur-control"
+                max="20"
+                step="0.05"
+              />
+            </label>
+            <label for="">
+              <span class="name">
+                <p>Transparency</p>
+                <p class="indicator">0</p>
+              </span>
+              <input
+                type="range"
+                name=""
+                id="opacity-control"
+                max="1"
+                step="0.01"
+              />
+            </label>
+            <label for="">
+              <span class="name">
+                <p>Box-Shadow</p>
+                <p class="indicator">0</p>
+              </span>
+              <input
+                type="range"
+                name=""
+                id="shadow-control"
+                max="1"
+                step="0.01"
+              />
+            </label>
 
-          <label for="">
-            Show outline
-            <input type="checkbox" name="" id="" checked />
-          </label>
-        </div>
-      </section>
+            <label for="">
+              Show outline
+              <input type="checkbox" name="" id="" checked />
+            </label>
+          </div>
+        </section>
 
-      <footer></footer>
-    </main>
-    <aside>
-      <pre>
-        <code class="prism language-js">
-          background: ${colorValue}; box-shadow: ${shadowString};
-          backdrop-filter: ${blurString}; border-radius: 10px; border: 1px solid
-          rgba(255, 255, 255, 0.06);
-        </code>
-      </pre>
-      <button class="btn" id="copy-btn">Click</button>
-    </aside>
+        <footer></footer>
+      </main>
+      <aside>
+        <pre>
+      <code class="prism language-js">
+        background: ${colorValue}; box-shadow: ${shadowString};
+        backdrop-filter: ${blurString}; border-radius: 10px; border: 1px solid
+        rgba(255, 255, 255, 0.06);
+      </code>
+    </pre>
+        <button class="btn" id="copy-btn">Click</button>
+      </aside>
+    </article>
     <script src="prism.js"></script>
     <script src="main.js"></script>
   </body>
