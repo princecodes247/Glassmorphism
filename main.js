@@ -63,6 +63,7 @@ const screenBG = [
     },
 ];
 
+//....To set random BG colors....
 let randIndex = Math.floor(Math.random() * screenBG.length);
 root.style.setProperty("--screen-bg", screenBG[randIndex].bg);
 root.style.setProperty("--screen-text", screenBG[randIndex].color);
@@ -100,6 +101,7 @@ function hexToRGB(h) {
     }
     colorValue = `rgba(${redValue}, ${greenValue}, ${blueValue},${alphaValue})`;
 }
+
 // Code Output
 function codeOutput() {
     codeBox.innerHTML = Prism.highlight(

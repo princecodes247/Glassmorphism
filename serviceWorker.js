@@ -1,6 +1,7 @@
 const staticGGen = "glassmorphism-generator-v1"
 const assets = [
     "/",
+    "/index.html",
     "/style.css",
     "/main.js",
     "/prism.css",
@@ -21,24 +22,25 @@ self.addEventListener("fetch", fetchEvent => {
         caches.match(fetchEvent.request)
             .then(res => {
                 return res || fetch(fetchEvent.request)
-                    .then(res => {
-                        if (!res || res.status !== 200 || res.type !== 'basic') {
-                            return res;
-                        }
+                //         .then(res => {
+                //             if (!res || res.status !== 200 || res.type !== 'basic') {
+                //                 return res;
+                //             }
 
-                        let resToCache = res.clone();
-                        caches.open(staticGGen)
-                            .then(cache => {
-                                cache.put(fetchEvent.request, resToCache)
-                            })
+                //             let resToCache = res.clone();
+                //             caches.open(staticGGen)
+                //                 .then(cache => {
+                //                     cache.put(fetchEvent.request, resToCache)
+                //                 })
 
-                        return res
-                    }
-                    )
+                //             return res
+                //         }
+                //         )
+                // })
+                // .then(networkRes => {
+                //     cache.put
+                //     return res || fetch(fetchEvent.request)
             })
-        // .then(networkRes => {
-        //     cache.put
-        //     return res || fetch(fetchEvent.request)
-        // })
     )
-})
+}
+)
