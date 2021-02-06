@@ -7,6 +7,7 @@ const opacityControl = document.querySelector("#opacity-control");
 const colorControl = document.querySelector("#color-control");
 const target = document.querySelectorAll(".target");
 const shadowControl = document.querySelector("#shadow-control");
+const outlineControl = document.querySelector("#outline-control");
 
 //Control Variables
 let redValue = 189
@@ -19,6 +20,7 @@ let shadowValue = 0.2;
 let shadowString = `0 8px 32px 0 rgba(14, 15, 18, 0.20)`;
 let blurValue = 5;
 let blurString = `blur(${blurValue}px)`;
+let outlineValue = true;
 const screenBG = [
     {
         bg: "brown",
@@ -103,8 +105,9 @@ function codeOutput() {
     box-shadow: ${shadowString};
     backdrop-filter: ${blurString};
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    `,
+    ${outlineValue ? 'border : 1px solid rgba(255, 255, 255, 0.06);' : ''
+        }
+`,
         Prism.languages.javascript,
         "javascript"
     );
@@ -130,14 +133,14 @@ copyBtn.addEventListener("click", () => {
 blurControl.addEventListener("input", () => {
     blurValue = event.target.value;
     blurString = `blur(${blurValue}px)`;
-    target.forEach((item) => (item.style.backdropFilter = `${blurString}`));
+    target.forEach((item) => (item.style.backdropFilter = `${blurString} `));
     let indicator = blurControl.parentElement.querySelector(".name .indicator");
     indicator.innerText = event.target.value;
     codeOutput();
 });
 opacityControl.addEventListener("input", () => {
     alphaValue = event.target.value;
-    colorValue = `rgba(${redValue}, ${greenValue}, ${blueValue},${alphaValue})`;
+    colorValue = `rgba(${redValue}, ${greenValue}, ${blueValue}, ${alphaValue})`;
     target.forEach((item) => (item.style.background = colorValue));
     let indicator = opacityControl.parentElement.querySelector(
         ".name .indicator"
@@ -161,6 +164,16 @@ shadowControl.addEventListener("input", () => {
     indicator.innerText = shadowValue;
     codeOutput();
 });
+outlineControl.addEventListener("input", () => {
+    outlineValue = event.target.checked
+    if (outlineValue) {
+        target.forEach((item) => (item.style.border = "none"));
+    }
+    else {
+        target.forEach((item) => (item.style.border = "none"));
+    }
+    codeOutput();
 
+});
 
 
