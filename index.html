@@ -3,12 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" />
-    `
+
     <title>Document</title>
     <link rel="stylesheet" href="prism.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="manifest" href="/manifest.json" />
+    <!-- ios support -->
+    <meta name="apple-mobile-web-app-status-bar" content="#0a0a2b" />
+    <meta name="theme-color" content="#0a0a2b" />
+    <link rel="apple-touch-icon" href="/public/img/logo.png" />
+    <link rel="apple-touch-icon" href="/public/img/logo 2x.png" />
+    <link rel="apple-touch-icon" href="/public/img/logo 3x.png" />
   </head>
   <body>
     <header>
@@ -157,6 +162,17 @@
         </div>
       </aside>
     </article>
+    <script>
+      //Register service worker
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker
+            .register("/serviceWorker.js")
+            .then((res) => console.log("Service worker registered"))
+            .catch((err) => console.log("Service worker not registered", err));
+        });
+      }
+    </script>
     <script src="prism.js"></script>
     <script src="main.js"></script>
   </body>

@@ -1,7 +1,25 @@
 {
     "name": "Glassmorphism Generator",
     "short_name": "GlassmorphiGen",
-    "start_url": "index.html",
+    "start_url": "/?source=pwa",
+    "scope": "/",
+    "icons": [
+        {
+            "src": "/public/img/logo.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "/public/img/logo 2x.png",
+            "sizes": "288x288",
+            "type": "image/png"
+        },
+        {
+            "src": "/public/img/logo 3x.png",
+            "sizes": "596x596",
+            "type": "image/png"
+        }
+    ],
     "display": "standalone",
     "background_color": "#04052e",
     "theme_color": "#ffffff",

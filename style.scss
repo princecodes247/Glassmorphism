@@ -163,6 +163,9 @@ main {
           height: 100px;
           width: 100px;
         }
+        @media screen and (max-width: 768px) {
+          display: none;
+        }
       }
       &:nth-child(3) {
         top: 45%;
