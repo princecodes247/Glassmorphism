@@ -29,7 +29,7 @@ body {
 }
 
 header {
-  height: 8vh;
+  min-height: 8vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

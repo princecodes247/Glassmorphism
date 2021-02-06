@@ -29,7 +29,7 @@ body {
   background-color: var(--bg);
 }
 header {
-  height: 8vh;
+  min-height: 8vh;
   display: flex;
   align-items: center;
   padding: 12px;

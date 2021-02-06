@@ -1,3 +1,14 @@
+//Register service worker
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+        navigator.serviceWorker.register("/serviceWorker.js")
+            .then(res => console.log("Service worker registered"))
+            .catch(err => console.log("Service worker not registered", err))
+    })
+
+}
+
+
 //DOM Elements
 const root = document.querySelector(":root");
 const codeBox = document.querySelector("aside code");
@@ -10,16 +21,23 @@ const shadowControl = document.querySelector("#shadow-control");
 const outlineControl = document.querySelector("#outline-control");
 
 //Control Variables
-let redValue = 189
-let greenValue = 189
-let blueValue = 189
+let redValue = 189;
+let greenValue = 189;
+let blueValue = 189;
 let alphaValue = 0.36;
-let colorValue = `rgba(${redValue}, ${greenValue}, ${blueValue},${alphaValue})`;
 let shadowValue = 0.32;
-let shadowString = `0 8px 32px 0 rgba(14, 15, 18, ${shadowValue})`;
 let blurValue = 4;
-let blurString = `blur(${blurValue}px)`;
 let outlineValue = true;
+
+let colorValue = `rgba(${redValue}, ${greenValue}, ${blueValue},${alphaValue})`;
+let shadowString = `0 8px 32px 0 rgba(14, 15, 18, ${shadowValue})`;
+let blurString = `blur(${blurValue}px)`;
+
+blurControl.value = 5;
+shadowControl.value = shadowValue;
+opacityControl.value = alphaValue;
+colorControl.value = `#${redValue.toString(16)}${greenValue.toString(16)}${blueValue.toString(16)}`;
+
 const screenBG = [
     {
         bg: "brown",
@@ -53,23 +71,19 @@ const screenBG = [
         bg: "#cd9777",
         color: "#111",
     },
-
-
-
 ];
+
 let randIndex = Math.floor(Math.random() * screenBG.length);
 root.style.setProperty("--screen-bg", screenBG[randIndex].bg);
 root.style.setProperty("--screen-text", screenBG[randIndex].color);
 
 //To set the sliders default values
-blurControl.value = 5;
-shadowControl.value = shadowValue;
-opacityControl.value = alphaValue;
-colorControl.value = `#${redValue.toString(16)}${greenValue.toString(16)}${blueValue.toString(16)}`;
 
 colorControl.parentElement.querySelector(
     ".indicator"
-).innerText = `#${redValue.toString(16)}${greenValue.toString(16)}${blueValue.toString(16)}`;
+).innerText = `#${redValue.toString(16)}${greenValue.toString(
+    16
+)}${blueValue.toString(16)}`;
 
 shadowControl.parentElement.querySelector(
     ".name .indicator"
@@ -85,7 +99,6 @@ blurControl.parentElement.querySelector(
 //..............................
 //Color format transformation function
 function hexToRGB(h) {
-
     if (h.length == 4) {
         redValue = parseInt(h[1] + h[1], 16);
         greenValue = parseInt(h[2] + h[2], 16);
@@ -105,16 +118,16 @@ function codeOutput() {
     box-shadow: ${shadowString};
     backdrop-filter: ${blurString};
     border-radius: 10px;
-    ${outlineValue ? 'border: 1px solid rgba(255, 255, 255, 0.06);' : ''
-        }
+    ${outlineValue ? "border: 1px solid rgba(255, 255, 255, 0.06);" : ""}
 `,
         Prism.languages.javascript,
         "javascript"
     );
 }
-codeOutput()
-//Copy to clipboard
 
+//Event Listeners
+
+//Copy to clipboard
 copyBtn.addEventListener("click", () => {
     let dummy = document.createElement("textarea");
     dummy.innerText = codeBox.textContent;
@@ -128,8 +141,7 @@ copyBtn.addEventListener("click", () => {
         copyBtn.innerText = "Copy";
     }, 4000);
 });
-
-//Event Listeners
+//Control Event Listeners
 blurControl.addEventListener("input", () => {
     blurValue = event.target.value;
     blurString = `blur(${blurValue}px)`;
@@ -155,7 +167,6 @@ colorControl.addEventListener("input", () => {
     indicator.innerText = event.target.value;
     codeOutput();
 });
-
 shadowControl.addEventListener("input", () => {
     shadowValue = event.target.value;
     shadowString = `0 8px 32px 0 rgba(14, 15, 18, ${shadowValue})`;
@@ -165,15 +176,15 @@ shadowControl.addEventListener("input", () => {
     codeOutput();
 });
 outlineControl.addEventListener("input", () => {
-    outlineValue = event.target.checked
+    outlineValue = event.target.checked;
     if (outlineValue) {
-        target.forEach((item) => (item.style.border = "1px solid rgba(255, 255, 255, 0.06)"));
-    }
-    else {
+        target.forEach(
+            (item) => (item.style.border = "1px solid rgba(255, 255, 255, 0.06)")
+        );
+    } else {
         target.forEach((item) => (item.style.border = "none"));
     }
     codeOutput();
-
 });
 
-
+codeOutput();

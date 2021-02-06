@@ -1,0 +1,10 @@
+{
+    "name": "Glassmorphism Generator",
+    "short_name": "GlassmorphiGen",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#04052e",
+    "theme_color": "#ffffff",
+    "orientation": "portrait-primary"
+
+}
