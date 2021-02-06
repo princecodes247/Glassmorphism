@@ -50,13 +50,20 @@ header h2 span {
   color: var(--text);
 }
 
+.target {
+  background: rgba(189, 189, 189, 0.04);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(14, 15, 18, 0.2);
+          box-shadow: 0 8px 32px 0 rgba(14, 15, 18, 0.2);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+
 article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 100vh;
-  padding: 10px;
-  padding: 10px 10%;
+  height: 92vh;
+  padding: 10px 9% 10px 10%;
 }
 
 @media screen and (max-width: 1024px) {
@@ -81,19 +88,23 @@ article {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    padding: 10px 9% 10px 9%;
   }
 }
 
 aside {
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
+  -webkit-box-flex: 4;
+      -ms-flex: 4;
+          flex: 4;
+  margin-left: 10px;
   padding-left: 10px;
 }
 
 @media screen and (max-width: 770px) {
   aside {
     padding-bottom: 40px;
+    padding-left: 0px;
+    margin-left: 0px;
   }
 }
 
@@ -183,11 +194,11 @@ main #screen .target {
   background-color: burlywood;
   height: 35%;
   width: 8em;
-  background: rgba(189, 189, 189, 0.04);
-  -webkit-box-shadow: 0 8px 32px 0 rgba(14, 15, 18, 0.2);
-          box-shadow: 0 8px 32px 0 rgba(14, 15, 18, 0.2);
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  background: rgba(189, 189, 189, 0.36);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(14, 15, 18, 0.32);
+          box-shadow: 0 8px 32px 0 rgba(14, 15, 18, 0.32);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.06);
   display: -webkit-box;
@@ -201,65 +212,92 @@ main #screen .target {
           align-items: center;
   -webkit-transform: translate(-50%, -50%) rotate3d(5, 1, 1, -32deg);
           transform: translate(-50%, -50%) rotate3d(5, 1, 1, -32deg);
+  -webkit-transition: -webkit-transform 2s;
+  transition: -webkit-transform 2s;
+  transition: transform 2s;
+  transition: transform 2s, -webkit-transform 2s;
 }
 
 main #screen .target:nth-child(2) {
-  top: 55%;
-  left: 60%;
-  z-index: 0;
-}
-
-@media screen and (min-width: 2560px) {
-  main #screen .target:nth-child(2) {
-    left: 50%;
-  }
-}
-
-main #screen .target:nth-child(3) {
-  top: 28%;
-  left: 10%;
+  top: 5%;
+  left: 5%;
   z-index: 2;
-  -webkit-transform: translate(0%, -50%) rotate3d(5, 1, 1, 0deg);
-          transform: translate(0%, -50%) rotate3d(5, 1, 1, 0deg);
-  border-radius: 50%;
-  height: 60px;
-  width: 60px;
+  -webkit-transform: translate(0%, 0%) rotate3d(5, 1, 1, 0deg);
+          transform: translate(0%, 0%) rotate3d(5, 1, 1, 0deg);
+  height: 12vw;
+  width: 12vw;
+  min-height: 65px;
+  min-width: 65px;
+  max-height: 90px;
+  max-width: 90px;
 }
 
 @media screen and (min-width: 1440px) {
-  main #screen .target:nth-child(3) {
+  main #screen .target:nth-child(2) {
     height: 100px;
     width: 100px;
   }
 }
 
-main #screen .target:nth-child(4) {
+main #screen .target:nth-child(3) {
   top: 45%;
   left: 65%;
   z-index: 3;
 }
 
 @media screen and (min-width: 2560px) {
-  main #screen .target:nth-child(4) {
+  main #screen .target:nth-child(3) {
     left: 55%;
   }
 }
 
-main #screen .target:nth-child(5) {
-  bottom: 5%;
-  right: 0%;
-  z-index: 2;
-  -webkit-transform: translate(0%, -50%) rotate3d(5, 1, 1, 0deg);
-          transform: translate(0%, -50%) rotate3d(5, 1, 1, 0deg);
-  height: 15%;
-  width: 5em;
-  border-radius: 10px 0 0 10px;
+main #screen .target:nth-child(4) {
+  top: 55%;
+  left: 60%;
+  z-index: 0;
 }
 
-@media screen and (max-width: 500px) {
-  main #screen .target:nth-child(5) {
-    width: 2em;
+@media screen and (min-width: 2560px) {
+  main #screen .target:nth-child(4) {
+    left: 50%;
   }
+}
+
+main #screen .target:nth-child(5) {
+  bottom: 1%;
+  right: 0%;
+  z-index: 2;
+  -webkit-transform: translate(70%, -10%) rotate3d(5, 1, 1, 0deg);
+          transform: translate(70%, -10%) rotate3d(5, 1, 1, 0deg);
+  height: 15%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 100%;
+  border-radius: 10px;
+  padding: 5px;
+  text-decoration: underline;
+}
+
+main #screen .target:nth-child(5) p {
+  -webkit-transition: 1s;
+  transition: 1s;
+  opacity: 0;
+}
+
+main #screen .target:hover:nth-child(3),
+main #screen .target:hover:nth-child(3) + .target {
+  -webkit-transform: translate(-80%, -50%) rotate3d(5, 1, 1, -32deg);
+          transform: translate(-80%, -50%) rotate3d(5, 1, 1, -32deg);
+}
+
+main #screen .target:hover:nth-child(3) ~ .target:nth-child(5), main #screen .target:hover:nth-child(5) {
+  -webkit-transform: translate(0%, -10%) rotate3d(5, 1, 1, 0deg);
+          transform: translate(0%, -10%) rotate3d(5, 1, 1, 0deg);
+}
+
+main #screen .target:hover:nth-child(3) ~ .target:nth-child(5) p, main #screen .target:hover:nth-child(5) p {
+  opacity: 1;
 }
 
 .controls {
@@ -305,14 +343,19 @@ main #screen .target:nth-child(5) {
 
 .social-sect {
   margin-top: 20px;
-}
-
-.social-sect .social-link {
-  margin-right: 2px;
-  margin-bottom: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.social-sect .social-link {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+  width: 24px;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  overflow: hidden;
 }
 
 .social-sect .social-link svg {

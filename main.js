@@ -13,12 +13,11 @@ const outlineControl = document.querySelector("#outline-control");
 let redValue = 189
 let greenValue = 189
 let blueValue = 189
-let alphaValue = 0.14;
+let alphaValue = 0.36;
 let colorValue = `rgba(${redValue}, ${greenValue}, ${blueValue},${alphaValue})`;
-let rgbColor = "rgba(189, 189, 189";
-let shadowValue = 0.2;
-let shadowString = `0 8px 32px 0 rgba(14, 15, 18, 0.20)`;
-let blurValue = 5;
+let shadowValue = 0.32;
+let shadowString = `0 8px 32px 0 rgba(14, 15, 18, ${shadowValue})`;
+let blurValue = 4;
 let blurString = `blur(${blurValue}px)`;
 let outlineValue = true;
 const screenBG = [
@@ -66,6 +65,7 @@ root.style.setProperty("--screen-text", screenBG[randIndex].color);
 blurControl.value = 5;
 shadowControl.value = shadowValue;
 opacityControl.value = alphaValue;
+colorControl.value = `#${redValue.toString(16)}${greenValue.toString(16)}${blueValue.toString(16)}`;
 
 colorControl.parentElement.querySelector(
     ".indicator"
@@ -105,7 +105,7 @@ function codeOutput() {
     box-shadow: ${shadowString};
     backdrop-filter: ${blurString};
     border-radius: 10px;
-    ${outlineValue ? 'border : 1px solid rgba(255, 255, 255, 0.06);' : ''
+    ${outlineValue ? 'border: 1px solid rgba(255, 255, 255, 0.06);' : ''
         }
 `,
         Prism.languages.javascript,
@@ -167,7 +167,7 @@ shadowControl.addEventListener("input", () => {
 outlineControl.addEventListener("input", () => {
     outlineValue = event.target.checked
     if (outlineValue) {
-        target.forEach((item) => (item.style.border = "none"));
+        target.forEach((item) => (item.style.border = "1px solid rgba(255, 255, 255, 0.06)"));
     }
     else {
         target.forEach((item) => (item.style.border = "none"));
